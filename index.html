@@ -7,6 +7,7 @@
         <title>Marissa</title>
         <link href="resources/css/bootstrap.min.css" rel="stylesheet">
         <link href="resources/css/site.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
         <script src="resources/js/jquery-3.2.1.min.js"></script>
         <script src="resources/js/bootstrap.min.js"></script>
     </head>
@@ -17,7 +18,7 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                        <h3 class="text-right">Cick the arrow on the right to continue</h3>
+                        <h2 class="text-right">Click the right arrow to continue</h2>
                     </div>
                     <div class="item">
                         <h1 class="text-center">Marissa...</h1>
@@ -27,12 +28,12 @@
                     </div>
                     <div class="item">
                         <h2 class="text-center">So, this isn’t actually a pizza site, but here’s a picture of some anyway.</h2>
-                        <img src="resources/images/deweys.jpg" alt="pizza" class="center-image" />
+                        <img src="resources/images/deweys.jpg" alt="pizza" class="center-image top-buffer" />
                         <p class="text-center">Mmm...pizza</p>
                     </div>
                     <div class="item">
                         <h3 class="text-center">And some other things you like...</h3>
-                        <img src="resources/images/collage.jpg" alt="favorites" class="center-image" />
+                        <img src="resources/images/collage.jpg" alt="favorites" class="center-image top-buffer" />
                     </div>
                     <div class="item">
                         <img src="resources/images/brian.jpg" alt="brian" class="center-image" />
@@ -59,16 +60,13 @@
                         <h1 class="text-center">Kind</h1>
                     </div>
                     <div class="item">
-                        <h1 class="text-center">Loving</h1>
-                    </div>
-                    <div class="item">
-                        <h1 class="text-center">Crazy</h1>
-                    </div>
-                    <div class="item">
                         <h1 class="text-center">Dedicated</h1>
                     </div>
                     <div class="item">
                         <h1 class="text-center">Dorky</h1>
+                    </div>
+                    <div class="item">
+                        <h1 class="text-center">Loving</h1>
                     </div>
                     <div class="item">
                         <h1 class="text-center">And Special</h1>
@@ -84,7 +82,7 @@
                     </div>
                     <div class="item">
                         <h1 class="text-center">I Love You and I Like You</h1>
-                        <img src="resources/images/parksandrec.jpg" alt="parksandrec" class="center-image" />
+                        <img src="resources/images/parksandrec.jpg" alt="parksandrec" class="center-image top-buffer" />
                     </div>
                     <div class="item">
                         <h1 class="text-center">And I want to spend the rest of my life with you</h1>
@@ -94,8 +92,7 @@
                     </div>
                     <div class="item">
                         <h1 class="text-center">Come see me, 'cause I need to ask you something!</h1>
-                    </div>
-                    <div class="item">
+                        <img src="resources/images/winking.png" alt="winking" class="center-image top-buffer" style="width:125px;" />
                     </div>
                 </div>
 
@@ -115,5 +112,25 @@
         $('.carousel').carousel({
             interval: false
         })
+
+        $(document).ready(function(){               
+            hideArrowsMaybe();
+        });
+
+        $('#carousel').on('slid.bs.carousel', '', hideArrowsMaybe);  
+
+        function hideArrowsMaybe()                        
+        {
+            var $this = $('#carousel');
+            if($('.carousel-inner .item:first').hasClass('active')) {
+                $this.children('.left.carousel-control').hide();
+                $this.children('.right.carousel-control').show();
+            } else if($('.carousel-inner .item:last').hasClass('active')) {
+                $this.children('.left.carousel-control').show();
+                $this.children('.right.carousel-control').hide();
+            } else {
+                $this.children('.carousel-control').show();
+            } 
+        }
     </script>
 </html>
