@@ -84,7 +84,7 @@
                         <img src="resources/images/special.jpg" alt="special" class="center-image top-buffer" />
                     </div>
                     <div class="item">
-                        <h1 class="text-center top-buffer-large">As YOU was still single on January 2, 2016</h1>
+                        <h1 class="text-center top-buffer-large">As <span style="color:#9c9cfb;">YOU</span> was still single on January 2, 2016</h1>
                         <img src="resources/images/single.jpg" alt="single" class="center-image top-buffer" />
                     </div>
                     <div class="item">
@@ -121,30 +121,31 @@
                 </a>
             </div>
         </div>
+
+        <script type="text/javascript">
+            $('.carousel').carousel({
+                interval: false
+            })
+
+            $(document).ready(function(){               
+                hideArrowsMaybe();
+            });
+
+            $('#carousel').on('slid.bs.carousel', '', hideArrowsMaybe);  
+
+            function hideArrowsMaybe()                        
+            {
+                var $this = $('#carousel');
+                if($('.carousel-inner .item:first').hasClass('active')) {
+                    $this.children('.left.carousel-control').hide();
+                    $this.children('.right.carousel-control').show();
+                } else if($('.carousel-inner .item:last').hasClass('active')) {
+                    $this.children('.left.carousel-control').show();
+                    $this.children('.right.carousel-control').hide();
+                } else {
+                    $this.children('.carousel-control').show();
+                } 
+            }
+        </script>
     </body>
-    <script type="text/javascript">
-        $('.carousel').carousel({
-            interval: false
-        })
-
-        $(document).ready(function(){               
-            hideArrowsMaybe();
-        });
-
-        $('#carousel').on('slid.bs.carousel', '', hideArrowsMaybe);  
-
-        function hideArrowsMaybe()                        
-        {
-            var $this = $('#carousel');
-            if($('.carousel-inner .item:first').hasClass('active')) {
-                $this.children('.left.carousel-control').hide();
-                $this.children('.right.carousel-control').show();
-            } else if($('.carousel-inner .item:last').hasClass('active')) {
-                $this.children('.left.carousel-control').show();
-                $this.children('.right.carousel-control').hide();
-            } else {
-                $this.children('.carousel-control').show();
-            } 
-        }
-    </script>
 </html>
