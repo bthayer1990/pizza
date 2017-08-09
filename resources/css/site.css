@@ -8,7 +8,7 @@ body {
     margin-right: auto;
 }
 
-.top-buffer {
+.top-buffer-small {
     margin-top: 25px;
 }
 
@@ -20,10 +20,10 @@ body {
     margin-top: 75px;
 }
 
-.vertical-center {
-    margin-top: 260px;
-}
-
 .trait {
     font-size: 50px;
+}
+
+.carousel-inner .text-right {
+    padding-right: 10px;
 }
